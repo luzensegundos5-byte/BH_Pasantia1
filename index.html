@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full bg-slate-900">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billini Hotel Historic Luxury - Discover Santo Domingo</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts Inter & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Custom Color Palette Configuration - Billini Hotel Branding (Dorado, Rojo & Carbón) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bh: {
+                            gold: '#C5A059',       // Dorado champán / Oro boutique
+                            goldlight: '#E2C78E',  // Dorado claro
+                            red: '#A6192E',        // Rojo carmesí emblemático Billini
+                            reddark: '#7A0C1E',    // Rojo borgoña profundo
+                            dark: '#1C1C1C',       // Negro carbón / Grafito
+                            navy: '#121921',       // Fondo oscuro profundo
+                            cream: '#F9F7F2',      // Blanco crema colonial
+                            card: '#1E2630',       // Fondo tarjetas oscuras
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #121921;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #A6192E;
+            border-radius: 4px;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="h-full text-slate-100 antialiased flex justify-center bg-slate-950 sm:py-6">
+
+    <!-- Main Outer Device Wrapper -->
+    <div id="app-container" class="w-full max-w-md sm:max-w-xl md:max-w-2xl lg:max-w-4xl bg-bh-navy sm:rounded-3xl shadow-2xl overflow-hidden flex flex-col h-full min-h-screen sm:min-h-[840px] sm:max-h-[920px] relative border-0 sm:border-8 sm:border-slate-800">
+
+        <!-- Top Header Navigation Bar -->
+        <header class="bg-bh-navy text-white px-4 py-3 sm:px-6 sm:py-4 sticky top-0 z-40 shadow-md flex items-center justify-between border-b border-bh-red/40">
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('home')">
+                <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-bh-red flex items-center justify-center p-1.5 border border-bh-gold/50 shadow-md">
+                    <i class="fa-solid fa-hotel text-white text-base"></i>
+                </div>
+                <div>
+                    <h1 class="font-serif text-sm sm:text-base font-bold tracking-wider leading-none text-bh-cream">BILLINI HOTEL</h1>
+                    <p class="text-[9px] sm:text-[10px] tracking-widest text-bh-gold uppercase mt-0.5">Historic Luxury • Santo Domingo</p>
+                </div>
+            </div>
+
+            <!-- Language Toggle switch -->
+            <div class="flex items-center bg-bh-dark rounded-full p-1 border border-bh-red/40">
+                <button id="lang-en" onclick="setLanguage('en')" class="px-2.5 py-1 text-xs font-semibold rounded-full transition-all duration-300 text-white bg-bh-red shadow">EN</button>
+                <span class="text-slate-500 text-xs px-0.5">|</span>
+                <button id="lang-es" onclick="setLanguage('es')" class="px-2.5 py-1 text-xs font-semibold rounded-full transition-all duration-300 text-slate-400 hover:text-white">ES</button>
+            </div>
+        </header>
+
+        <!-- Main Scrollable Content Area -->
+        <main class="flex-1 overflow-y-auto bg-bh-navy relative pb-20">
+
+            <!-- PAGE 1: HOME / INICIO -->
+            <section id="tab-home" class="tab-page space-y-5">
+                
+                <!-- Hero Banner Section -->
+                <div class="relative h-64 sm:h-72 w-full overflow-hidden shadow-inner">
+                    <img src="https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?auto=format&fit=crop&w=1200&q=80" 
+                         alt="Catedral Primada de América" 
+                         class="w-full h-full object-cover object-center transform scale-105 hover:scale-100 transition-transform duration-700"
+                         onerror="this.src='https://placehold.co/800x500/121921/A6192E?text=Catedral+Primada+de+America'">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-bh-navy via-bh-navy/40 to-transparent flex flex-col justify-end p-5 text-white">
+                        <div class="inline-flex items-center space-x-1.5 bg-bh-red text-white px-3 py-1 rounded-full text-xs font-semibold w-fit mb-2 shadow-md border border-bh-gold/30">
+                            <i class="fa-solid fa-compass text-[10px]"></i>
+                            <span data-key="hero-tag">Official Guest Guide</span>
+                        </div>
+                        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-bh-cream leading-tight" data-key="hero-title">
+                            Welcome to Santo Domingo
+                        </h2>
+                        <p class="text-bh-goldlight text-xs sm:text-sm font-light mt-1 tracking-wide" data-key="hero-subtitle">
+                            Explore • Enjoy • Discover
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Welcome Text Block -->
+                <div class="px-4 sm:px-6">
+                    <div class="bg-bh-card rounded-2xl p-4 sm:p-5 shadow-sm border-l-4 border-l-bh-red border border-bh-gold/20 text-slate-200">
+                        <div class="flex items-center space-x-2 text-bh-red mb-2">
+                            <i class="fa-solid fa-bell-concierge"></i>
+                            <span class="text-xs uppercase tracking-wider font-bold text-bh-gold" data-key="welcome-header">Reception Desk Welcome</span>
+                        </div>
+                        <p class="text-xs sm:text-sm leading-relaxed text-slate-300" data-key="welcome-text">
+                            We invite you to explore the rich history, vibrant culture, delicious gastronomy, and natural beauty of the first city in the Americas.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Navigation Quick Categories Grid -->
+                <div class="px-4 sm:px-6 space-y-3">
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-bh-gold/80 px-1" data-key="explore-categories">
+                        Explore Categories
+                    </h3>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <!-- Card 1: What to visit -->
+                        <button onclick="switchTab('visit')" class="flex items-center justify-between p-4 bg-bh-card rounded-2xl shadow-sm border border-bh-gold/15 hover:border-bh-red hover:shadow-md transition-all text-left group">
+                            <div class="flex items-center space-x-3.5">
+                                <div class="w-11 h-11 rounded-xl bg-bh-red/15 text-bh-red flex items-center justify-center text-lg group-hover:bg-bh-red group-hover:text-white transition-colors border border-bh-red/30">
+                                    <i class="fa-solid fa-landmark"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-sm text-bh-cream" data-key="cat-visit-title">What to Visit</h4>
+                                    <p class="text-xs text-slate-400" data-key="cat-visit-desc">History, culture & landmarks</p>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-xs text-slate-500 group-hover:text-bh-gold transition-colors"></i>
+                        </button>
+
+                        <!-- Card 2: Where to Eat -->
+                        <button onclick="switchTab('food')" class="flex items-center justify-between p-4 bg-bh-card rounded-2xl shadow-sm border border-bh-gold/15 hover:border-bh-red hover:shadow-md transition-all text-left group">
+                            <div class="flex items-center space-x-3.5">
+                                <div class="w-11 h-11 rounded-xl bg-bh-red/15 text-bh-red flex items-center justify-center text-lg group-hover:bg-bh-red group-hover:text-white transition-colors border border-bh-red/30">
+                                    <i class="fa-solid fa-utensils"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-sm text-bh-cream" data-key="cat-food-title">Where to Eat</h4>
+                                    <p class="text-xs text-slate-400" data-key="cat-food-desc">Dominican flavors & gastronomy</p>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-xs text-slate-500 group-hover:text-bh-gold transition-colors"></i>
+                        </button>
+
+                        <!-- Card 3: Nature & Beaches -->
+                        <button onclick="switchTab('nature')" class="flex items-center justify-between p-4 bg-bh-card rounded-2xl shadow-sm border border-bh-gold/15 hover:border-bh-red hover:shadow-md transition-all text-left group">
+                            <div class="flex items-center space-x-3.5">
+                                <div class="w-11 h-11 rounded-xl bg-bh-red/15 text-bh-red flex items-center justify-center text-lg group-hover:bg-bh-red group-hover:text-white transition-colors border border-bh-red/30">
+                                    <i class="fa-solid fa-umbrella-beach"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-sm text-bh-cream" data-key="cat-nature-title">Nature & Beaches</h4>
+                                    <p class="text-xs text-slate-400" data-key="cat-nature-desc">Tours, beaches & eco-spots</p>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-xs text-slate-500 group-hover:text-bh-gold transition-colors"></i>
+                        </button>
+
+                        <!-- Card 4: Culture & Experiences -->
+                        <button onclick="switchTab('culture')" class="flex items-center justify-between p-4 bg-bh-card rounded-2xl shadow-sm border border-bh-gold/15 hover:border-bh-red hover:shadow-md transition-all text-left group">
+                            <div class="flex items-center space-x-3.5">
+                                <div class="w-11 h-11 rounded-xl bg-bh-red/15 text-bh-red flex items-center justify-center text-lg group-hover:bg-bh-red group-hover:text-white transition-colors border border-bh-red/30">
+                                    <i class="fa-solid fa-masks-theater"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-sm text-bh-cream" data-key="cat-culture-title">Culture & Music</h4>
+                                    <p class="text-xs text-slate-400" data-key="cat-culture-desc">Merengue, bachata & photo spots</p>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-xs text-slate-500 group-hover:text-bh-gold transition-colors"></i>
+                        </button>
+
+                        <!-- Card 5: Transportation -->
+                        <button onclick="switchTab('info')" class="flex items-center justify-between p-4 bg-bh-card rounded-2xl shadow-sm border border-bh-gold/15 hover:border-bh-red hover:shadow-md transition-all text-left group">
+                            <div class="flex items-center space-x-3.5">
+                                <div class="w-11 h-11 rounded-xl bg-bh-red/15 text-bh-red flex items-center justify-center text-lg group-hover:bg-bh-red group-hover:text-white transition-colors border border-bh-red/30">
+                                    <i class="fa-solid fa-taxi"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-sm text-bh-cream" data-key="cat-info-title">Useful Info & Transport</h4>
+                                    <p class="text-xs text-slate-400" data-key="cat-info-desc">Taxis, currency, hotel contacts</p>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-xs text-slate-500 group-hover:text-bh-gold transition-colors"></i>
+                        </button>
+
+                        <!-- Card 6: Plan Your Visit -->
+                        <button onclick="switchTab('plan')" class="flex items-center justify-between p-4 bg-bh-card rounded-2xl shadow-sm border border-bh-gold/15 hover:border-bh-red hover:shadow-md transition-all text-left group">
+                            <div class="flex items-center space-x-3.5">
+                                <div class="w-11 h-11 rounded-xl bg-bh-red/15 text-bh-red flex items-center justify-center text-lg group-hover:bg-bh-red group-hover:text-white transition-colors border border-bh-red/30">
+                                    <i class="fa-solid fa-route"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-sm text-bh-cream" data-key="cat-plan-title">Plan Your Visit</h4>
+                                    <p class="text-xs text-slate-400" data-key="cat-plan-desc">1-Day & 2-3 Day Itineraries</p>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-xs text-slate-500 group-hover:text-bh-gold transition-colors"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Hotel Front Desk Direct Action Banner -->
+                <div class="px-4 sm:px-6 pt-2">
+                    <div class="bg-gradient-to-r from-bh-card to-bh-dark text-white rounded-2xl p-4 flex items-center justify-between shadow-md border border-bh-red/40">
+                        <div class="space-y-1">
+                            <p class="text-xs font-semibold text-bh-gold" data-key="frontdesk-tag">Billini Guest Support</p>
+                            <h4 class="text-sm font-bold text-bh-cream" data-key="frontdesk-title">Need personalized assistance?</h4>
+                            <p class="text-[11px] text-slate-300" data-key="frontdesk-sub">Dial Extension 0 or visit Front Desk.</p>
+                        </div>
+                        <a href="tel:+18096823000" class="bg-bh-red hover:bg-bh-reddark text-white font-bold p-3 rounded-xl text-center shadow-lg transition-all flex items-center justify-center border border-bh-gold/40">
+                            <i class="fa-solid fa-phone"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PAGE 2: PLACES TO VISIT -->
+            <section id="tab-visit" class="tab-page hidden p-4 sm:p-6 space-y-4">
+                <div class="border-b border-bh-gold/20 pb-3">
+                    <h2 class="font-serif text-xl font-bold text-bh-cream" data-key="page-visit-title">Must-See Historic & Cultural Sites</h2>
+                    <p class="text-xs text-slate-400" data-key="page-visit-sub">Explore the heritage of the Americas right outside Billini Hotel.</p>
+                </div>
+
+                <!-- Site Item 1 -->
+                <div class="bg-bh-card rounded-2xl overflow-hidden shadow-sm border border-bh-gold/20 flex flex-col sm:flex-row">
+                    <img src="https://cms.w2m.com/dam/Sites/DMC-Excursiones/DOMINICANA/Collection/santo-domingo-calle.jpg?v=1748865281849" class="w-full sm:w-2/5 h-40 sm:h-auto object-cover" alt="Zona Colonial" onerror="this.src='https://placehold.co/400x300/121921/A6192E?text=Zona+Colonial'">
+                    <div class="p-4 flex flex-col justify-between flex-1">
+                        <div>
+                            <div class="flex items-center space-x-1.5 text-xs font-bold text-bh-gold mb-1">
+                                <i class="fa-solid fa-ribbon text-bh-red"></i>
+                                <span data-key="site1-badge">UNESCO World Heritage</span>
+                            </div>
+                            <h3 class="font-bold text-base text-bh-cream" data-key="site1-title">Zona Colonial</h3>
+                            <p class="text-xs text-slate-300 mt-1 leading-relaxed" data-key="site1-desc">
+                                Discover historic cobblestone streets, colonial architecture, vibrant squares, museums, and charming outdoor cafes.
+                            </p>
+                        </div>
+                        <div class="mt-3 pt-3 border-t border-bh-gold/10 flex items-center justify-between">
+                            <span class="text-[11px] text-slate-400"><i class="fa-solid fa-walk text-bh-gold mr-1"></i><span data-key="dist-onsite">Right outside hotel</span></span>
+                            <button onclick="openMap('Zona Colonial Santo Domingo')" class="text-xs bg-bh-red text-white font-semibold px-3 py-1.5 rounded-lg hover:bg-bh-reddark transition-colors flex items-center space-x-1 border border-bh-gold/30">
+                                <i class="fa-solid fa-location-dot text-[10px]"></i>
+                                <span data-key="btn-map">View Location</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Site Item 2 -->
+                <div class="bg-bh-card rounded-2xl overflow-hidden shadow-sm border border-bh-gold/20 flex flex-col sm:flex-row">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1yvOEzA-SPp4h6lQBVboMaoWlD69riO4u-WbdQmyHUWqVcUPCfkB3uyVN&s=10" class="w-full sm:w-2/5 h-40 sm:h-auto object-cover" alt="Catedral Primada" onerror="this.src='https://placehold.co/400x300/121921/A6192E?text=Catedral+Primada'">
+                    <div class="p-4 flex flex-col justify-between flex-1">
+                        <div>
+                            <h3 class="font-bold text-base text-bh-cream" data-key="site2-title">Catedral Primada de América</h3>
+                            <p class="text-xs text-slate-300 mt-1 leading-relaxed" data-key="site2-desc">
+                                The first cathedral built in the Americas, noted for its Gothic-Renaissance style and rich historical artifacts.
+                            </p>
+                        </div>
+                        <div class="mt-3 pt-3 border-t border-bh-gold/10 flex items-center justify-between">
+                            <span class="text-[11px] text-slate-400"><i class="fa-solid fa-person-walking mr-1 text-bh-gold"></i><span>3 min walk (300m)</span></span>
+                            <button onclick="openMap('Catedral Primada de America Santo Domingo')" class="text-xs bg-bh-red text-white font-semibold px-3 py-1.5 rounded-lg hover:bg-bh-reddark transition-colors flex items-center space-x-1 border border-bh-gold/30">
+                                <i class="fa-solid fa-location-dot text-[10px]"></i>
+                                <span data-key="btn-map">View Location</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Site Item 3 -->
+                <div class="bg-bh-card rounded-2xl overflow-hidden shadow-sm border border-bh-gold/20 flex flex-col sm:flex-row">
+                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/a6/54/3d/en-la-zona-colonial-de.jpg?w=1200&h=-1&s=1" class="w-full sm:w-2/5 h-40 sm:h-auto object-cover" alt="Alcázar de Colón" onerror="this.src='https://placehold.co/400x300/121921/A6192E?text=Alcazar+de+Colon'">
+                    <div class="p-4 flex flex-col justify-between flex-1">
+                        <div>
+                            <h3 class="font-bold text-base text-bh-cream" data-key="site3-title">Alcázar de Colón</h3>
+                            <p class="text-xs text-slate-300 mt-1 leading-relaxed" data-key="site3-desc">
+                                Former palace of Christopher Columbus’s son Diego, transformed into a museum displaying late medieval and Renaissance artwork.
+                            </p>
+                        </div>
+                        <div class="mt-3 pt-3 border-t border-bh-gold/10 flex items-center justify-between">
+                            <span class="text-[11px] text-slate-400"><i class="fa-solid fa-person-walking mr-1 text-bh-gold"></i><span>8 min walk (650m)</span></span>
+                            <button onclick="openMap('Alcazar de Colon Santo Domingo')" class="text-xs bg-bh-red text-white font-semibold px-3 py-1.5 rounded-lg hover:bg-bh-reddark transition-colors flex items-center space-x-1 border border-bh-gold/30">
+                                <i class="fa-solid fa-location-dot text-[10px]"></i>
+                                <span data-key="btn-map">View Location</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Site Item 4 -->
+                <div class="bg-bh-card rounded-2xl overflow-hidden shadow-sm border border-bh-gold/20 flex flex-col sm:flex-row">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUxhFpll7mMpR9UMhhJ3PqjmlTdc3Ipu77jy3exhL4tXDFDKMESngSL15-&s=10" class="w-full sm:w-2/5 h-40 sm:h-auto object-cover" alt="Fortaleza Ozama" onerror="this.src='https://placehold.co/400x300/121921/A6192E?text=Fortaleza+Ozama'">
+                    <div class="p-4 flex flex-col justify-between flex-1">
+                        <div>
+                            <h3 class="font-bold text-base text-bh-cream" data-key="site4-title">Fortaleza Ozama & Parque Colón</h3>
+                            <p class="text-xs text-slate-300 mt-1 leading-relaxed" data-key="site4-desc">
+                                The oldest European military fortress in the New World and the lively central gathering plaza.
+                            </p>
+                        </div>
+                        <div class="mt-3 pt-3 border-t border-bh-gold/10 flex items-center justify-between">
+                            <span class="text-[11px] text-slate-400"><i class="fa-solid fa-person-walking mr-1 text-bh-gold"></i><span>5 min walk (450m)</span></span>
+                            <button onclick="openMap('Fortaleza Ozama Santo Domingo')" class="text-xs bg-bh-red text-white font-semibold px-3 py-1.5 rounded-lg hover:bg-bh-reddark transition-colors flex items-center space-x-1 border border-bh-gold/30">
+                                <i class="fa-solid fa-location-dot text-[10px]"></i>
+                                <span data-key="btn-map">View Location</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PAGE 3: FOOD & GASTRONOMY -->
+            <section id="tab-food" class="tab-page hidden p-4 sm:p-6 space-y-4">
+                <div class="border-b border-bh-gold/20 pb-3">
+                    <h2 class="font-serif text-xl font-bold text-bh-cream" data-key="page-food-title">Dominican Food & Gastronomy</h2>
+                    <p class="text-xs text-slate-400" data-key="page-food-sub">Savor authentic Caribbean dishes and local delicacies during your stay.</p>
+                </div>
+
+                <!-- Hotel Dining Services (Cafetería, Restaurante & Pizzería) -->
+                <div class="space-y-3">
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-bh-gold" data-key="hotel-dining-title">Hotel Culinary Outlets</h3>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <!-- Cafetería -->
+                        <div class="bg-bh-card rounded-2xl p-3 border border-bh-gold/20 flex flex-col justify-between shadow-sm">
+                            <div class="flex items-center space-x-2.5 mb-2">
+                                <div class="w-8 h-8 rounded-lg bg-bh-red/20 text-bh-gold flex items-center justify-center text-sm border border-bh-gold/30">
+                                    <i class="fa-solid fa-mug-saucer"></i>
+                                </div>
+                                <h4 class="font-bold text-sm text-bh-cream" data-key="outlet-cafe-title">Cafetería</h4>
+                            </div>
+                            <p class="text-[11px] text-slate-300 leading-relaxed" data-key="outlet-cafe-desc">
+                                Café gourmet dominicano, repostería artesanal, bocadillos frescos y jugos naturales para comenzar el día.
+                            </p>
+                        </div>
+
+                        <!-- Restaurante -->
+                        <div class="bg-bh-card rounded-2xl p-3 border border-bh-gold/20 flex flex-col justify-between shadow-sm">
+                            <div class="flex items-center space-x-2.5 mb-2">
+                                <div class="w-8 h-8 rounded-lg bg-bh-red/20 text-bh-gold flex items-center justify-center text-sm border border-bh-gold/30">
+                                    <i class="fa-solid fa-utensils"></i>
+                                </div>
+                                <h4 class="font-bold text-sm text-bh-cream" data-key="outlet-rest-title">Restaurante</h4>
+                            </div>
+                            <p class="text-[11px] text-slate-300 leading-relaxed" data-key="outlet-rest-desc">
+                                Alta cocina fusión criolla e internacional servida en un ambiente colonial elegante con menú a la carta.
+                            </p>
+                        </div>
+
+                        <!-- Pizzería -->
+                        <div class="bg-bh-card rounded-2xl p-3 border border-bh-gold/20 flex flex-col justify-between shadow-sm">
+                            <div class="flex items-center space-x-2.5 mb-2">
+                                <div class="w-8 h-8 rounded-lg bg-bh-red/20 text-bh-gold flex items-center justify-center text-sm border border-bh-gold/30">
+                                    <i class="fa-solid fa-pizza-slice"></i>
+                                </div>
+                                <h4 class="font-bold text-sm text-bh-cream" data-key="outlet-pizza-title">Pizzería</h4>
+                            </div>
+                            <p class="text-[11px] text-slate-300 leading-relaxed" data-key="outlet-pizza-desc">
+                                Pizzas artesanales al horno de piedra preparadas con ingredientes frescos y combinaciones especiales de la casa.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Traditional Dishes Title -->
+                <h3 class="text-xs font-bold uppercase tracking-wider text-bh-gold pt-2" data-key="traditional-dishes-title">Traditional Dominican Dishes</h3>
+
+                <!-- Dish Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <!-- Dish 1 -->
+                    <div class="bg-bh-card rounded-2xl overflow-hidden shadow-sm border border-bh-gold/20 p-3 flex space-x-3">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEavcGkG_MUJqjJjzs2PdaxrFxPL67HcMXhv_wtjqaGJ_ER3CIshpbpxj8&s=10" class="w-24 h-24 rounded-xl object-cover" alt="La Bandera" onerror="this.src='https://placehold.co/200x200/121921/A6192E?text=La+Bandera'">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-sm text-bh-cream" data-key="dish1-title">La Bandera Dominicana</h4>
+                            <p class="text-[11px] text-slate-300 mt-1" data-key="dish1-desc">The national lunch plate featuring white rice, red stewed beans, seasoned beef or chicken, and fried plantains.</p>
+                        </div>
+                    </div>
+
+                    <!-- Dish 2 -->
+                    <div class="bg-bh-card rounded-2xl overflow-hidden shadow-sm border border-bh-gold/20 p-3 flex space-x-3">
+                        <img src="https://belquistwist.com/wp-content/uploads/2019/12/IMG_7483-copy.jpg" class="w-24 h-24 rounded-xl object-cover" alt="Mangú" onerror="this.src='https://placehold.co/200x200/121921/A6192E?text=Mangu'">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-sm text-bh-cream" data-key="dish2-title">Mangú ("Los Tres Golpes")</h4>
+                            <p class="text-[11px] text-slate-300 mt-1" data-key="dish2-desc">Classic breakfast dish of mashed green plantains topped with pickled red onions, fried cheese, salami, and eggs.</p>
+                        </div>
+                    </div>
+
+                    <!-- Dish 3 -->
+                    <div class="bg-bh-card rounded-2xl overflow-hidden shadow-sm border border-bh-gold/20 p-3 flex space-x-3">
+                        <img src="https://rumbameats.com/wp-content/uploads/2024/11/Oxtail-Sancocho-website-alt.jpg" class="w-24 h-24 rounded-xl object-cover" alt="Sancocho" onerror="this.src='https://placehold.co/200x200/121921/A6192E?text=Sancocho'">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-sm text-bh-cream" data-key="dish3-title">Sancocho</h4>
+                            <p class="text-[11px] text-slate-300 mt-1" data-key="dish3-desc">A rich, hearty stew cooked with up to seven types of meat, root vegetables, corn, and traditional local spices.</p>
+                        </div>
+                    </div>
+
+                    <!-- Dish 4 -->
+                    <div class="bg-bh-card rounded-2xl overflow-hidden shadow-sm border border-bh-gold/20 p-3 flex space-x-3">
+                        <img src="https://micocinadominicana.com/wp-content/uploads/2019/04/Pollo-Guisado-Smart-Little-Cookie-5.jpg" class="w-24 h-24 rounded-xl object-cover" alt="Pollo Guisado" onerror="this.src='https://placehold.co/200x200/121921/A6192E?text=Pollo+Guisado'">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-sm text-bh-cream" data-key="dish4-title">Pollo Guisado</h4>
+                            <p class="text-[11px] text-slate-300 mt-1" data-key="dish4-desc">Slow-braised caramelized chicken cooked with bell peppers, herbs, and garlic, bursting with local taste.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reception Recommended Dining Box -->
+                <div class="bg-bh-card rounded-2xl p-4 border border-bh-red/40 text-slate-200 space-y-2 mt-4">
+                    <div class="flex items-center space-x-2 text-bh-red">
+                        <i class="fa-solid fa-bell-concierge"></i>
+                        <h4 class="font-bold text-xs uppercase tracking-wider text-bh-gold" data-key="food-tip-header">Hotel Dining Recommendation</h4>
+                    </div>
+                    <p class="text-xs leading-relaxed text-slate-300" data-key="food-tip-body">
+                        Please visit our Reception Desk for curated dining reservations nearby in Zona Colonial, including fine dining restaurants approved by our concierge team.
+                    </p>
+                </div>
+            </section>
+
+            <!-- PAGE 4: NATURE & BEACHES -->
+            <section id="tab-nature" class="tab-page hidden p-4 sm:p-6 space-y-4">
+                <div class="border-b border-bh-gold/20 pb-3">
+                    <h2 class="font-serif text-xl font-bold text-bh-cream" data-key="page-nature-title">Nature & Beaches</h2>
+                    <p class="text-xs text-slate-400" data-key="page-nature-sub">Tropical coastlines, limestone caves, and botanical gardens.</p>
+                </div>
+
+                <!-- Beach Item -->
+                <div class="bg-bh-card rounded-2xl overflow-hidden shadow-sm border border-bh-gold/20">
+                    <img src="https://www.colonialtours.com/1parabocachiasamolGrande2.jpg" class="w-full h-36 object-cover" alt="Boca Chica Beach" onerror="this.src='https://placehold.co/600x300/121921/A6192E?text=Boca+Chica'">
+                    <div class="p-4">
+                        <span class="inline-block bg-bh-red/20 text-bh-goldlight border border-bh-red/30 text-[10px] font-bold px-2 py-0.5 rounded-md mb-1" data-key="beach-tag">Caribbean Beach</span>
+                        <h3 class="font-bold text-base text-bh-cream" data-key="nature1-title">Boca Chica & Juan Dolio</h3>
+                        <p class="text-xs text-slate-300 mt-1" data-key="nature1-desc">Crystal clear shallow waters and white sandy shores located just 30 to 45 minutes drive from the hotel.</p>
+                        
+                        <div class="mt-3 flex flex-wrap gap-2 text-[11px] text-slate-300">
+                            <span class="bg-bh-navy px-2 py-1 rounded-lg border border-bh-gold/10"><i class="fa-regular fa-clock mr-1 text-bh-gold"></i>35 mins</span>
+                            <span class="bg-bh-navy px-2 py-1 rounded-lg border border-bh-gold/10"><i class="fa-solid fa-car mr-1 text-bh-gold"></i>Taxi / Uber</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nature Spot 1 -->
+                <div class="bg-bh-card rounded-2xl overflow-hidden shadow-sm border border-bh-gold/20">
+                    <img src="https://mamajuanatravel.com/_next/image?url=https%3A%2F%2Fstbjczfelurzsdeuxajn.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fmedia%2Fwp-migration%2F2025%2F09%2Fzaramagullones-lake-los-tres-ojos-santo-domingo.webp&w=3840&q=75" class="w-full h-36 object-cover" alt="Los Tres Ojos" onerror="this.src='https://placehold.co/600x300/121921/A6192E?text=Los+Tres+Ojos'">
+                    <div class="p-4">
+                        <span class="inline-block bg-bh-red/20 text-bh-goldlight border border-bh-red/30 text-[10px] font-bold px-2 py-0.5 rounded-md mb-1" data-key="nature-tag">Natural Cave System</span>
+                        <h3 class="font-bold text-base text-bh-cream" data-key="nature2-title">Los Tres Ojos National Park</h3>
+                        <p class="text-xs text-slate-300 mt-1" data-key="nature2-desc">A dramatic 50-foot open-air limestone cave with three crystal freshwater underground lakes.</p>
+                        
+                        <div class="mt-3 flex flex-wrap gap-2 text-[11px] text-slate-300">
+                            <span class="bg-bh-navy px-2 py-1 rounded-lg border border-bh-gold/10"><i class="fa-regular fa-clock mr-1 text-bh-gold"></i>15 mins drive</span>
+                            <span class="bg-bh-navy px-2 py-1 rounded-lg border border-bh-gold/10"><i class="fa-solid fa-ticket mr-1 text-bh-gold"></i>~$4 USD entry</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nature Spot 2 -->
+                <div class="bg-bh-card rounded-2xl overflow-hidden shadow-sm border border-bh-gold/20">
+                    <img src="https://arquitexto.com/wp-content/uploads/2025/07/Botanical-Garden_005.jpg" class="w-full h-36 object-cover" alt="Los Tres Ojos" onerror="this.src='https://placehold.co/600x300/121921/A6192E?text=Los+Tres+Ojos'">
+                    <div class="p-4">
+                        <h3 class="font-bold text-base text-bh-cream" data-key="nature3-title">National Botanical Garden</h3>
+                        <p class="text-xs text-slate-300 mt-1" data-key="nature3-desc">One of the largest botanical gardens in the Caribbean, featuring a peaceful Japanese Garden and native orchid house.</p>
+                        <div class="mt-2 text-xs text-bh-gold font-semibold cursor-pointer hover:underline" onclick="openMap('Jardin Botanico Nacional Santo Domingo')">
+                            <i class="fa-solid fa-arrow-up-right-from-square mr-1 text-bh-red"></i><span data-key="btn-map">View Location</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PAGE 5: CULTURE & EXPERIENCES -->
+            <section id="tab-culture" class="tab-page hidden p-4 sm:p-6 space-y-4">
+                <div class="border-b border-bh-gold/20 pb-3">
+                    <h2 class="font-serif text-xl font-bold text-bh-cream" data-key="page-culture-title">Culture & Experiences</h2>
+                    <p class="text-xs text-slate-400" data-key="page-culture-sub">Music, art, crafts, and memorable photography spots.</p>
+                </div>
+
+                <!-- Experience list -->
+                <div class="space-y-3">
+                    <div class="bg-bh-card p-4 rounded-2xl border border-bh-gold/20 flex items-start space-x-3.5 shadow-sm">
+                        <div class="w-10 h-10 rounded-xl bg-bh-red text-white flex items-center justify-center text-lg flex-shrink-0 shadow-md">
+                            <i class="fa-solid fa-music"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm text-bh-cream" data-key="cult1-title">Merengue & Bachata Rhythms</h4>
+                            <p class="text-xs text-slate-300 mt-1" data-key="cult1-desc">Experience live Dominican music and dancing listed as UNESCO Intangible Cultural Heritage of Humanity.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-bh-card p-4 rounded-2xl border border-bh-gold/20 flex items-start space-x-3.5 shadow-sm">
+                        <div class="w-10 h-10 rounded-xl bg-bh-red text-white flex items-center justify-center text-lg flex-shrink-0 shadow-md">
+                            <i class="fa-solid fa-gem"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm text-bh-cream" data-key="cult2-title">Larimar & Amber Jewelry</h4>
+                            <p class="text-xs text-slate-300 mt-1" data-key="cult2-desc">Shop for unique local handcrafted jewelry made from rare turquoise Larimar stone found only in the Dominican Republic.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-bh-card p-4 rounded-2xl border border-bh-gold/20 flex items-start space-x-3.5 shadow-sm">
+                        <div class="w-10 h-10 rounded-xl bg-bh-red text-white flex items-center justify-center text-lg flex-shrink-0 shadow-md">
+                            <i class="fa-solid fa-camera"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm text-bh-cream" data-key="cult3-title">Top Photography Spots</h4>
+                            <p class="text-xs text-slate-300 mt-1" data-key="cult3-desc">Calle El Conde, Calle Las Damas, Plaza España sunset, and the Malecón oceanfront boardwalk.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PAGE 6: USEFUL INFORMATION -->
+            <section id="tab-info" class="tab-page hidden p-4 sm:p-6 space-y-4">
+                <div class="border-b border-bh-gold/20 pb-3">
+                    <h2 class="font-serif text-xl font-bold text-bh-cream" data-key="page-info-title">Useful Information & Services</h2>
+                    <p class="text-xs text-slate-400" data-key="page-info-sub">Key contacts, hotel services, and transportation guidelines.</p>
+                </div>
+
+                <!-- Info Cards -->
+                <div class="grid grid-cols-1 gap-3">
+                    <!-- Hotel Reception Info -->
+                    <div class="bg-bh-card p-4 rounded-2xl border border-bh-gold/20 shadow-sm space-y-2">
+                        <div class="flex items-center space-x-2 text-bh-red font-bold text-sm">
+                            <i class="fa-solid fa-hotel text-bh-gold"></i>
+                            <span data-key="info-hotel-title" class="text-bh-cream">Billini Hotel Front Desk</span>
+                        </div>
+                        <div class="text-xs text-slate-300 space-y-1 pl-6">
+                            <p><strong data-key="info-phone">Phone:</strong> +1 (809) 338-4040</p>
+                            <p><strong data-key="info-ext">Room Extension:</strong> Dial 0</p>
+                            <p><strong data-key="info-hours">Hours:</strong> 24 Hours / 7 Days</p>
+                            <p><strong data-key="info-wifi">Wi-Fi:</strong> High-speed guest network available throughout premises</p>
+                        </div>
+                    </div>
+
+                    <!-- Transport -->
+                    <div class="bg-bh-card p-4 rounded-2xl border border-bh-gold/20 shadow-sm space-y-2">
+                        <div class="flex items-center space-x-2 text-bh-red font-bold text-sm">
+                            <i class="fa-solid fa-taxi text-bh-gold"></i>
+                            <span data-key="info-trans-title" class="text-bh-cream">Transportation</span>
+                        </div>
+                        <p class="text-xs text-slate-300 pl-6" data-key="info-trans-desc">
+                            We recommend using ride-hailing applications (Uber, InDrive) or official hotel-authorized taxi services arranged by Reception.
+                        </p>
+                    </div>
+
+                    <!-- Currency & Emergency -->
+                    <div class="bg-bh-card p-4 rounded-2xl border border-bh-gold/20 shadow-sm space-y-2">
+                        <div class="flex items-center space-x-2 text-bh-red font-bold text-sm">
+                            <i class="fa-solid fa-shield-halved text-bh-gold"></i>
+                            <span data-key="info-emer-title" class="text-bh-cream">Currency & Emergencies</span>
+                        </div>
+                        <div class="text-xs text-slate-300 space-y-1 pl-6">
+                            <p><strong>Currency:</strong> Dominican Peso (DOP). USD & Credit Cards widely accepted.</p>
+                            <p><strong>National Emergency:</strong> 911</p>
+                            <p><strong>Tourist Police (POLITUR):</strong> +1 (809) 338-4040</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PAGE 7: PLAN YOUR VISIT -->
+            <section id="tab-plan" class="tab-page hidden p-4 sm:p-6 space-y-4">
+                <div class="border-b border-bh-gold/20 pb-3">
+                    <h2 class="font-serif text-xl font-bold text-bh-cream" data-key="page-plan-title">Plan Your Visit</h2>
+                    <p class="text-xs text-slate-400" data-key="page-plan-sub">Tailored itineraries to maximize your stay in Santo Domingo.</p>
+                </div>
+
+                <!-- Itinerary 1 Day -->
+                <div class="bg-bh-card p-4 rounded-2xl border border-bh-gold/20 shadow-sm space-y-3">
+                    <div class="flex items-center justify-between border-b border-bh-gold/10 pb-2">
+                        <h4 class="font-bold text-sm text-bh-cream" data-key="itin1-title">1-Day Express Itinerary</h4>
+                        <span class="bg-bh-gold/20 text-bh-goldlight text-[10px] font-bold px-2 py-0.5 rounded-full border border-bh-gold/30">Classic</span>
+                    </div>
+                    <ul class="text-xs text-slate-300 space-y-2">
+                        <li class="flex items-start space-x-2">
+                            <span class="font-bold text-bh-red w-14">Morning:</span>
+                            <span>Guided walk around Zona Colonial & Catedral Primada.</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <span class="font-bold text-bh-red w-14">Afternoon:</span>
+                            <span>Lunch with traditional La Bandera dish & shopping at Calle El Conde.</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <span class="font-bold text-bh-red w-14">Evening:</span>
+                            <span>Sunset cocktail at Plaza España or oceanfront stroll along the Malecón.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Itinerary 2-3 Days -->
+                <div class="bg-bh-card p-4 rounded-2xl border border-bh-gold/20 shadow-sm space-y-3">
+                    <div class="flex items-center justify-between border-b border-bh-gold/10 pb-2">
+                        <h4 class="font-bold text-sm text-bh-cream" data-key="itin2-title">2 to 3 Days Stay</h4>
+                        <span class="bg-bh-red text-white text-[10px] font-bold px-2 py-0.5 rounded-full border border-bh-gold/30">Recommended</span>
+                    </div>
+                    <ul class="text-xs text-slate-300 space-y-2">
+                        <li class="flex items-start space-x-2">
+                            <span class="font-bold text-bh-gold w-12">Day 1:</span>
+                            <span>Colonial Zone Museums, Alcázar de Colón & Fortaleza Ozama.</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <span class="font-bold text-bh-gold w-12">Day 2:</span>
+                            <span>Excursion to Los Tres Ojos caves and relax at Boca Chica Beach.</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <span class="font-bold text-bh-gold w-12">Day 3:</span>
+                            <span>National Botanical Garden visit & Dominican high gastronomy dinner.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Contact Reception CTA -->
+                <div class="text-center pt-2">
+                    <button onclick="switchTab('info')" class="w-full bg-bh-red text-white font-bold py-3 px-4 rounded-xl shadow-md hover:bg-bh-reddark transition-all text-xs uppercase tracking-wider flex items-center justify-center space-x-2 border border-bh-gold/30">
+                        <i class="fa-solid fa-headset"></i>
+                        <span data-key="btn-contact-reception">Contact Reception for Assistance</span>
+                    </button>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Fixed Mobile Bottom Navigation Bar -->
+        <nav class="absolute bottom-0 left-0 right-0 bg-bh-navy/95 backdrop-blur-md border-t border-bh-red/30 z-40 px-2 py-1.5 flex justify-around items-center text-slate-400">
+            <!-- Nav Item: Home -->
+            <button onclick="switchTab('home')" id="nav-home" class="nav-btn active flex flex-col items-center py-1 px-2 rounded-xl transition-all text-bh-red font-bold">
+                <i class="fa-solid fa-house text-base"></i>
+                <span class="text-[10px] mt-0.5" data-key="nav-home">Home</span>
+            </button>
+
+            <!-- Nav Item: Visit -->
+            <button onclick="switchTab('visit')" id="nav-visit" class="nav-btn flex flex-col items-center py-1 px-2 rounded-xl transition-all hover:text-bh-red">
+                <i class="fa-solid fa-landmark text-base"></i>
+                <span class="text-[10px] mt-0.5" data-key="nav-visit">Visit</span>
+            </button>
+
+            <!-- Nav Item: Food -->
+            <button onclick="switchTab('food')" id="nav-food" class="nav-btn flex flex-col items-center py-1 px-2 rounded-xl transition-all hover:text-bh-red">
+                <i class="fa-solid fa-utensils text-base"></i>
+                <span class="text-[10px] mt-0.5" data-key="nav-food">Dining</span>
+            </button>
+
+            <!-- Nav Item: Nature -->
+            <button onclick="switchTab('nature')" id="nav-nature" class="nav-btn flex flex-col items-center py-1 px-2 rounded-xl transition-all hover:text-bh-red">
+                <i class="fa-solid fa-umbrella-beach text-base"></i>
+                <span class="text-[10px] mt-0.5" data-key="nav-nature">Beaches</span>
+            </button>
+
+            <!-- Nav Item: Useful Info -->
+            <button onclick="switchTab('info')" id="nav-info" class="nav-btn flex flex-col items-center py-1 px-2 rounded-xl transition-all hover:text-bh-red">
+                <i class="fa-solid fa-circle-info text-base"></i>
+                <span class="text-[10px] mt-0.5" data-key="nav-info">Info</span>
+            </button>
+        </nav>
+
+    </div>
+
+    <script>
+        const translations = {
+            en: {
+                "hero-tag": "Official Guest Guide",
+                "hero-title": "Welcome to Santo Domingo",
+                "hero-subtitle": "Explore • Enjoy • Discover",
+                "welcome-header": "Reception Desk Welcome",
+                "welcome-text": "We invite you to explore the rich history, vibrant culture, delicious gastronomy, and natural beauty of the first city in the Americas.",
+                "explore-categories": "Explore Categories",
+                "cat-visit-title": "What to Visit",
+                "cat-visit-desc": "History, culture & landmarks",
+                "cat-food-title": "Where to Eat",
+                "cat-food-desc": "Dominican flavors & gastronomy",
+                "cat-nature-title": "Nature & Beaches",
+                "cat-nature-desc": "Tours, beaches & eco-spots",
+                "cat-culture-title": "Culture & Music",
+                "cat-culture-desc": "Merengue, bachata & photo spots",
+                "cat-info-title": "Useful Info & Transport",
+                "cat-info-desc": "Taxis, currency, hotel contacts",
+                "cat-plan-title": "Plan Your Visit",
+                "cat-plan-desc": "1-Day & 2-3 Day Itineraries",
+                "frontdesk-tag": "Billini Guest Support",
+                "frontdesk-title": "Need personalized assistance?",
+                "frontdesk-sub": "Dial Extension 0 or visit Front Desk.",
+                "page-visit-title": "Must-See Historic & Cultural Sites",
+                "page-visit-sub": "Explore the heritage of the Americas right outside Billini Hotel.",
+                "site1-badge": "UNESCO World Heritage",
+                "site1-title": "Zona Colonial",
+                "site1-desc": "Discover historic cobblestone streets, colonial architecture, vibrant squares, museums, and charming outdoor cafes.",
+                "dist-onsite": "Right outside hotel",
+                "btn-map": "View Location",
+                "site2-title": "Catedral Primada de América",
+                "site2-desc": "The first cathedral built in the Americas, noted for its Gothic-Renaissance style and rich historical artifacts.",
+                "site3-title": "Alcázar de Colón",
+                "site3-desc": "Former palace of Christopher Columbus’s son Diego, transformed into a museum displaying late medieval and Renaissance artwork.",
+                "site4-title": "Fortaleza Ozama & Parque Colón",
+                "site4-desc": "The oldest European military fortress in the New World and the lively central gathering plaza.",
+                "page-food-title": "Dominican Food & Gastronomy",
+                "page-food-sub": "Savor authentic Caribbean dishes and local delicacies during your stay.",
+                "hotel-dining-title": "Hotel Culinary Outlets",
+                "outlet-cafe-title": "Cafeteria",
+                "outlet-cafe-desc": "Dominican gourmet coffee, artisanal pastries, fresh sandwiches, and natural juices to start your day.",
+                "outlet-rest-title": "Restaurant",
+                "outlet-rest-desc": "High-end Dominican fusion and international cuisine served in an elegant colonial setting with an à la carte menu.",
+                "outlet-pizza-title": "Pizzeria",
+                "outlet-pizza-desc": "Artisanal stone-baked pizzas prepared with fresh ingredients and house-special flavor combinations.",
+                "traditional-dishes-title": "Traditional Dominican Dishes",
+                "dish1-title": "La Bandera Dominicana",
+                "dish1-desc": "The national lunch plate featuring white rice, red stewed beans, seasoned beef or chicken, and fried plantains.",
+                "dish2-title": "Mangú (\"Los Tres Golpes\")",
+                "dish2-desc": "Classic breakfast dish of mashed green plantains topped with pickled red onions, fried cheese, salami, and eggs.",
+                "dish3-title": "Sancocho",
+                "dish3-desc": "A rich, hearty stew cooked with up to seven types of meat, root vegetables, corn, and traditional local spices.",
+                "dish4-title": "Pollo Guisado",
+                "dish4-desc": "Slow-braised caramelized chicken cooked with bell peppers, herbs, and garlic, bursting with local taste.",
+                "food-tip-header": "Hotel Dining Recommendation",
+                "food-tip-body": "Please visit our Reception Desk for curated dining reservations nearby in Zona Colonial, including fine dining restaurants approved by our concierge team.",
+                "page-nature-title": "Nature & Beaches",
+                "page-nature-sub": "Tropical coastlines, limestone caves, and botanical gardens.",
+                "beach-tag": "Caribbean Beach",
+                "nature1-title": "Boca Chica & Juan Dolio",
+                "nature1-desc": "Crystal clear shallow waters and white sandy shores located just 30 to 45 minutes drive from the hotel.",
+                "nature-tag": "Natural Cave System",
+                "nature2-title": "Los Tres Ojos National Park",
+                "nature2-desc": "A dramatic 50-foot open-air limestone cave with three crystal freshwater underground lakes.",
+                "nature3-title": "National Botanical Garden",
+                "nature3-desc": "One of the largest botanical gardens in the Caribbean, featuring a peaceful Japanese Garden and native orchid house.",
+                "page-culture-title": "Culture & Experiences",
+                "page-culture-sub": "Music, art, crafts, and memorable photography spots.",
+                "cult1-title": "Merengue & Bachata Rhythms",
+                "cult1-desc": "Experience live Dominican music and dancing listed as UNESCO Intangible Cultural Heritage of Humanity.",
+                "cult2-title": "Larimar & Amber Jewelry",
+                "cult2-desc": "Shop for unique local handcrafted jewelry made from rare turquoise Larimar stone found only in the Dominican Republic.",
+                "cult3-title": "Top Photography Spots",
+                "cult3-desc": "Calle El Conde, Calle Las Damas, Plaza España sunset, and the Malecón oceanfront boardwalk.",
+                "page-info-title": "Useful Information & Services",
+                "page-info-sub": "Key contacts, hotel services, and transportation guidelines.",
+                "info-hotel-title": "Billini Hotel Front Desk",
+                "info-phone": "Phone:",
+                "info-ext": "Room Extension:",
+                "info-hours": "Hours:",
+                "info-wifi": "Wi-Fi:",
+                "info-trans-title": "Transportation",
+                "info-trans-desc": "We recommend using ride-hailing applications (Uber, InDrive) or official hotel-authorized taxi services arranged by Reception.",
+                "info-emer-title": "Currency & Emergencies",
+                "page-plan-title": "Plan Your Visit",
+                "page-plan-sub": "Tailored itineraries to maximize your stay in Santo Domingo.",
+                "itin1-title": "1-Day Express Itinerary",
+                "itin2-title": "2 to 3 Days Stay",
+                "btn-contact-reception": "Contact Reception for Assistance",
+                "nav-home": "Home",
+                "nav-visit": "Visit",
+                "nav-food": "Dining",
+                "nav-nature": "Beaches",
+                "nav-info": "Info"
+            },
+            es: {
+                "hero-tag": "Guía Oficial de Huéspedes",
+                "hero-title": "¡Bienvenido a Santo Domingo!",
+                "hero-subtitle": "Explora • Disfruta • Descubre",
+                "welcome-header": "Bienvenida de Recepción",
+                "welcome-text": "Te invitamos a explorar la rica historia, la cultura vibrante, la deliciosa gastronomía y la belleza natural de la primera ciudad de América.",
+                "explore-categories": "Explorar Categorías",
+                "cat-visit-title": "Lugares para Visitar",
+                "cat-visit-desc": "Historia, cultura y monumentos",
+                "cat-food-title": "Dónde Comer",
+                "cat-food-desc": "Gastronomía y sabores dominicanos",
+                "cat-nature-title": "Naturaleza y Playas",
+                "cat-nature-desc": "Excursiones, playas y naturaleza",
+                "cat-culture-title": "Cultura y Música",
+                "cat-culture-desc": "Merengue, bachata y fotos",
+                "cat-info-title": "Información Útil y Transporte",
+                "cat-info-desc": "Taxis, moneda, contacto hotel",
+                "cat-plan-title": "Planifica tu Visita",
+                "cat-plan-desc": "Itinerarios de 1 día y 2-3 días",
+                "frontdesk-tag": "Asistencia Billini",
+                "frontdesk-title": "¿Necesitas ayuda personalizada?",
+                "frontdesk-sub": "Marca la Extensión 0 o visita Recepción.",
+                "page-visit-title": "Sitios Históricos e Imprescindibles",
+                "page-visit-sub": "Explora el patrimonio cultural a unos pasos del Billini Hotel.",
+                "site1-badge": "Patrimonio de la Humanidad UNESCO",
+                "site1-title": "Zona Colonial",
+                "site1-desc": "Descubre calles históricas adoquinadas, arquitectura colonial, plazas animadas, museos y cafés al aire libre.",
+                "dist-onsite": "Frente al hotel",
+                "btn-map": "Ver Ubicación",
+                "site2-title": "Catedral Primada de América",
+                "site2-desc": "La primera catedral construida en América, destacada por su estilo gótico-renacentista y valiosas reliquias.",
+                "site3-title": "Alcázar de Colón",
+                "site3-desc": "Antiguo palacio del hijo de Cristóbal Colón, Diego Colón, hoy convertido en museo histórico.",
+                "site4-title": "Fortaleza Ozama y Parque Colón",
+                "site4-desc": "La fortaleza militar europea más antigua del Nuevo Mundo y la plaza principal de encuentro.",
+                "page-food-title": "Comida y Gastronomía Dominicana",
+                "page-food-sub": "Saborea platillos autóctonos del Caribe durante tu estancia.",
+                "hotel-dining-title": "Servicios Gastronómicos del Hotel",
+                "outlet-cafe-title": "Cafetería",
+                "outlet-cafe-desc": "Café gourmet dominicano, repostería artesanal, bocadillos frescos y jugos naturales para comenzar el día.",
+                "outlet-rest-title": "Restaurante",
+                "outlet-rest-desc": "Alta cocina fusión criolla e internacional servida en un ambiente colonial elegante con menú a la carta.",
+                "outlet-pizza-title": "Pizzería",
+                "outlet-pizza-desc": "Pizzas artesanales al horno de piedra preparadas con ingredientes frescos y combinaciones especiales de la casa.",
+                "traditional-dishes-title": "Platos Tradicionales Dominicanos",
+                "dish1-title": "La Bandera Dominicana",
+                "dish1-desc": "El almuerzo nacional de arroz blanco, habichuelas guisadas, carne sazonada y plátanos fritos.",
+                "dish2-title": "Mangú (\"Los Tres Golpes\")",
+                "dish2-desc": "Desayuno tradicional de puré de plátanos verdes servido con queso frito, salami y huevos.",
+                "dish3-title": "Sancocho",
+                "dish3-desc": "Un suculento guiso cocinado con variadas carnes, víveres y especias tradicionales dominicanas.",
+                "dish4-title": "Pollo Guisado",
+                "dish4-desc": "Pollo sazonado y cocinado a fuego lento con pimientos, hierbas y ajo criollo.",
+                "food-tip-header": "Recomendación de Gastronomía",
+                "food-tip-body": "Visita Recepción para recomendarte restaurantes autorizados cercanos en la Zona Colonial.",
+                "page-nature-title": "Naturaleza y Playas",
+                "page-nature-sub": "Costas caribeñas, cúpulas subterráneas y jardines tropicales.",
+                "beach-tag": "Playa del Caribe",
+                "nature1-title": "Boca Chica y Juan Dolio",
+                "nature1-desc": "Aguas cristalinas de poca profundidad y arenas blancas a solo 30-45 minutos del hotel.",
+                "nature-tag": "Cueva Natural",
+                "nature2-title": "Parque Nacional Los Tres Ojos",
+                "nature2-desc": "Impresionante cueva de piedra caliza con tres lagunas subterráneas de agua dulce.",
+                "nature3-title": "Jardín Botánico Nacional",
+                "nature3-desc": "Uno de los jardines botánicos más grandes del Caribe, con un hermoso Jardín Japonés y orquideario.",
+                "page-culture-title": "Cultura y Experiencias",
+                "page-culture-sub": "Música, artesanías y puntos fotográficos de recuerdo.",
+                "cult1-title": "Música: Merengue y Bachata",
+                "cult1-desc": "Disfruta de ritmos declarados Patrimonio Cultural Inmaterial por la UNESCO.",
+                "cult2-title": "Joyas de Larimar y Ámbar",
+                "cult2-desc": "Consigue artesanía en piedra Larimar, gema azul única exclusiva de la República Dominicana.",
+                "cult3-title": "Puntos de Fotografía",
+                "cult3-desc": "Calle El Conde, Calle Las Damas, atardecer en Plaza España y el Malecón.",
+                "page-info-title": "Información Útil y Servicios",
+                "page-info-sub": "Contactos clave, servicios del hotel y recomendaciones de transporte.",
+                "info-hotel-title": "Recepción Billini Hotel",
+                "info-phone": "Teléfono:",
+                "info-ext": "Extensión Habitación:",
+                "info-hours": "Horario:",
+                "info-wifi": "Wi-Fi:",
+                "info-trans-title": "Transporte",
+                "info-trans-desc": "Recomendamos el uso de aplicaciones (Uber, InDrive) o taxis autorizados coordinados en Recepción.",
+                "info-emer-title": "Moneda y Emergencias",
+                "page-plan-title": "Planifica tu Visita",
+                "page-plan-sub": "Itinerarios sugeridos para aprovechar al máximo tu estancia.",
+                "itin1-title": "Itinerario Express (1 Día)",
+                "itin2-title": "Estadía de 2 a 3 Días",
+                "btn-contact-reception": "Contactar con Recepción",
+                "nav-home": "Inicio",
+                "nav-visit": "Visitar",
+                "nav-food": "Comida",
+                "nav-nature": "Playas",
+                "nav-info": "Info"
+            }
+        };
+
+        let currentLang = 'en';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            
+            // Toggle Button Styles
+            const btnEn = document.getElementById('lang-en');
+            const btnEs = document.getElementById('lang-es');
+
+            if (lang === 'en') {
+                btnEn.className = 'px-2.5 py-1 text-xs font-semibold rounded-full transition-all duration-300 text-white bg-bh-red shadow';
+                btnEs.className = 'px-2.5 py-1 text-xs font-semibold rounded-full transition-all duration-300 text-slate-400 hover:text-white';
+            } else {
+                btnEs.className = 'px-2.5 py-1 text-xs font-semibold rounded-full transition-all duration-300 text-white bg-bh-red shadow';
+                btnEn.className = 'px-2.5 py-1 text-xs font-semibold rounded-full transition-all duration-300 text-slate-400 hover:text-white';
+            }
+
+            // Update DOM Elements with translated keys
+            document.querySelectorAll('[data-key]').forEach(elem => {
+                const key = elem.getAttribute('data-key');
+                if (translations[lang][key]) {
+                    elem.textContent = translations[lang][key];
+                }
+            });
+        }
+
+        function switchTab(tabId) {
+            // Hide all tab pages
+            document.querySelectorAll('.tab-page').forEach(page => {
+                page.classList.add('hidden');
+            });
+
+            // Show selected page
+            const targetPage = document.getElementById(`tab-${tabId}`);
+            if (targetPage) {
+                targetPage.classList.remove('hidden');
+            }
+
+            // Update Bottom Nav Active State
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('text-bh-red', 'font-bold');
+                btn.classList.add('text-slate-400');
+            });
+
+            const activeNavBtn = document.getElementById(`nav-${tabId}`);
+            if (activeNavBtn) {
+                activeNavBtn.classList.remove('text-slate-400');
+                activeNavBtn.classList.add('text-bh-red', 'font-bold');
+            }
+
+            // Scroll content area back to top
+            document.querySelector('main').scrollTop = 0;
+        }
+
+        function openMap(query) {
+            const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+            window.open(url, '_blank');
+        }
+
+        // Initialize default view on Window Load
+        window.onload = function() {
+            setLanguage('en');
+        };
+    </script>
+</body>
+</html>
